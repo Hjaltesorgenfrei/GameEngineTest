@@ -22,10 +22,10 @@ gtest_discover_tests(tests)
 
 if(MSVC)
     set(build-output-path ${CMAKE_BINARY_DIR}/${CMAKE_BUILD_TYPE_INIT})
-    target_compile_options(tests PRIVATE /W4 /WX)
+    # target_compile_options(tests PRIVATE /W4 /WX)
 else()
     set(build-output-path ${CMAKE_BINARY_DIR})
-    target_compile_options(tests PRIVATE -Wall -Wextra -Wpedantic -Werror)
+    # target_compile_options(tests PRIVATE -Wall -Wextra -Wpedantic -Werror)
 endif()
 
 install(TARGETS tests DESTINATION bin)

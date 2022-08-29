@@ -7,8 +7,8 @@ target_link_libraries(main PRIVATE shared)
 target_include_directories(main PRIVATE ${CMAKE_SOURCE_DIR}/shared)
 
 if(MSVC)
-    target_compile_options(main PRIVATE /W4 /WX)
+    # target_compile_options(main PRIVATE /W4 /WX)
 else()
-    target_compile_options(main PRIVATE -Wall -Wextra -Wpedantic -Werror)
+    # target_compile_options(main PRIVATE -Wall -Wextra -Wpedantic -Werror)
 endif()
 
