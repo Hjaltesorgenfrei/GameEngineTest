@@ -9,14 +9,37 @@ FetchContent_Declare(
     GIT_TAG        9.0.0
 )
 
-FetchContent_MakeAvailable(fmt)
+FetchContent_Declare(
+    SRE
+    GIT_REPOSITORY https://github.com/mortennobel/SimpleRenderEngine
+    GIT_TAG        1.1.4
+)
+
+
+find_package(SDL2 REQUIRED)
+set(SRE_INCLUDE_DIRS ${SDL2_INCLUDE_DIR})
+
+find_package(OpenGL REQUIRED)
+list(APPEND SRE_INCLUDE_DIRS ${OPENGL_INCLUDE_DIR})
+IF(UNIX)
+    find_package(GLEW REQUIRED)
+ELSE(UNIX)
+    find_package(glew REQUIRED)
+ENDIF(UNIX)
+list(APPEND SRE_INCLUDE_DIRS ${GLEW_INCLUDE_DIR})
+SET(EXTRA_LIBS ${OPENGL_LIBRARY} ${GLEW_LIBRARY})
+
+find_package(SDL2_IMAGE REQUIRED)
+list(APPEND SRE_INCLUDE_DIRS ${SDL2_IMAGE_INCLUDE_DIRS})
+
+
+FetchContent_MakeAvailable(fmt SRE)
 
 file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS "*.cpp")
 
 add_library(shared ${SOURCES}) 
-target_include_directories(shared PUBLIC include)
 add_library(${CMAKE_PROJECT_NAME}::shared ALIAS shared)
-target_link_libraries(shared PRIVATE fmt)
+target_link_libraries(shared PRIVATE fmt SRE)
 
 if(MSVC)
     target_compile_options(shared PRIVATE /W4 /WX)
