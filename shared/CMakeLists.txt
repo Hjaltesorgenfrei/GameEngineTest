@@ -46,9 +46,6 @@ add_library(${CMAKE_PROJECT_NAME}::shared ALIAS shared)
 target_link_libraries(shared PRIVATE fmt SRE)
 target_include_directories(shared PRIVATE ${SRE_INCLUDE})
 
-
-message(STATUS "foo include dir: ${foo_INCLUDE}")
-
 if(MSVC)
     # target_compile_options(shared PRIVATE /W4 /WX)
 else()
