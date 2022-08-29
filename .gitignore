@@ -1,6 +1,10 @@
 # VSCode
 .vscode/
 
+*.vcxproj
+*.filters
+*.sln
+
 # CMake
 CMakeCache.txt
 CMakeFiles/

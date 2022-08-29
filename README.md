@@ -8,4 +8,15 @@ Dependencies to install:
 - glew
 - lua5.3
 
+## Linux
+
 `yay -S lua53 glew sdl2 sdl2_image sdl2_mixer`
+
+## Windows
+
+`vcpkg integrate install`
+
+`vcpkg install sdl2 sdl2-image sdl2-mixer glew opengl`
+
+And compile with:
+`-DCMAKE_TOOLCHAIN_FILE=/path/to/vcpkg/scripts/buildsystems/vcpkg.cmake`
