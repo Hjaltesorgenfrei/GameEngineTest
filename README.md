@@ -1,5 +1,11 @@
-# CMake Template Project
+# Games programming template
 
-A template project I use for various project that use CMake
-Todo: Add test support by following GTest documentation.
-<https://github.com/google/googletest/tree/main/googletest#incorporating-into-an-existing-cmake-project>
+Dependencies to install:
+
+- sdl2
+- sdl2-image
+- sdl2-mixer
+- glew
+- lua5.3
+
+`yay -S lua53 glew sdl2 sdl2_image sdl2_mixer`
