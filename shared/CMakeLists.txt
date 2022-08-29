@@ -2,20 +2,6 @@ cmake_minimum_required(VERSION 3.14)
 set(CMAKE_CXX_STANDARD 20)
 project (shared)
 
-include(FetchContent) 
-FetchContent_Declare(
-    fmt
-    GIT_REPOSITORY https://github.com/fmtlib/fmt
-    GIT_TAG        9.0.0
-)
-
-FetchContent_Declare(
-    SRE
-    GIT_REPOSITORY https://github.com/mortennobel/SimpleRenderEngine
-    GIT_TAG        1.1.4
-)
-
-
 find_package(SDL2 REQUIRED)
 set(SRE_INCLUDE_DIRS ${SDL2_INCLUDE_DIR})
 
@@ -34,6 +20,20 @@ list(APPEND SRE_INCLUDE_DIRS ${SDL2_IMAGE_INCLUDE_DIRS})
 
 find_package(SDL2_IMAGE REQUIRED)
 list(APPEND SRE_INCLUDE_DIRS ${SDL2_IMAGE_INCLUDE_DIRS})
+
+include(FetchContent) 
+FetchContent_Declare(
+    fmt
+    GIT_REPOSITORY https://github.com/fmtlib/fmt
+    GIT_TAG        9.0.0
+)
+
+FetchContent_Declare(
+    SRE
+    GIT_REPOSITORY https://github.com/mortennobel/SimpleRenderEngine
+    GIT_TAG        1.1.4
+    EXCLUDE_FROM_ALL    TRUE
+)
 
 FetchContent_MakeAvailable(fmt SRE)
 
