@@ -17,6 +17,6 @@ Dependencies to install:
 `vcpkg integrate install`
 
 `vcpkg install sdl2 sdl2-image sdl2-mixer glew opengl`
-
-And compile with:
+VCPKG_DEFAULT_TRIPLET=x64-windows
+And compile with: 
 `-DCMAKE_TOOLCHAIN_FILE=/path/to/vcpkg/scripts/buildsystems/vcpkg.cmake`
